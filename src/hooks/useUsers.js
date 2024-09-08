@@ -25,9 +25,6 @@ export const useUsers = () => {
   const addUserHandler = async (newUser) => {
     try {
       const response = await axios.post('https://jsonplaceholder.typicode.com/users', newUser);
-      if(users.name === newUser.name){
-        alert("Username already exists");
-      }
       setUsers([...users, response.data]);
       toast.success('User added successfully!');
     } catch (err) {
